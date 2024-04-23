@@ -1,12 +1,12 @@
-package com.endes.biblioteca;
+package com.endes.library;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AutorTest {
+class authorTest {
     @Test
     void testAuthorCreation() {
-        Autor autor = new Autor();
-        assertNotNull(autor);
+        author author = new author();
+        assertNotNull(author);
     }
 }

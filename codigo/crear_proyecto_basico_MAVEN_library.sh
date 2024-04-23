@@ -23,16 +23,16 @@ fi
 
 # Crea el proyecto usando Maven
 mvn archetype:generate \
-    -DgroupId=com.endes.biblioteca \
-    -DartifactId=biblioteca \
+    -DgroupId=com.endes.library \
+    -DartifactId=library \
     -DarchetypeArtifactId=maven-archetype-quickstart \
     -DinteractiveMode=false
 
 # Navega al directorio del proyecto
-cd biblioteca
+cd library
 
 # Eliminar el archivo de prueba generado por defecto que utiliza JUnit 4
-rm src/test/java/com/endes/biblioteca/AppTest.java
+rm src/test/java/com/endes/library/AppTest.java
 
 # Actualiza el pom.xml para JUnit 5
 cat << EOF > pom.xml
@@ -41,8 +41,8 @@ cat << EOF > pom.xml
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.endes.biblioteca</groupId>
-    <artifactId>biblioteca</artifactId>
+    <groupId>com.endes.library</groupId>
+    <artifactId>library</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -92,11 +92,11 @@ cat << EOF > pom.xml
 </project>
 EOF
 
-# Crear las clases de Java para Autor y Libro
-cat << EOF > src/main/java/com/endes/biblioteca/Autor.java
-package com.endes.biblioteca;
+# Crear las clases de Java para author y Book
+cat << EOF > src/main/java/com/endes/library/Author.java
+package com.endes.library;
 
-public class Autor {
+public class Author {
     private String name;
     private String biography;
 
@@ -104,49 +104,49 @@ public class Autor {
 }
 EOF
 
-cat << EOF > src/main/java/com/endes/biblioteca/Libro.java
-package com.endes.biblioteca;
+cat << EOF > src/main/java/com/endes/library/Book.java
+package com.endes.library;
 
 import java.util.List;
 
-public class Libro {
+public class Book {
     private String isbn;
     private String title;
-    private List<Autor> autores;
+    private List<author> authors;
 
     // Constructor, getters y setters aquí
 }
 EOF
 
-# Crear pruebas para Autor y Libro
-mkdir -p src/test/java/com/endes/biblioteca
+# Crear pruebas para author y Book
+mkdir -p src/test/java/com/endes/library
 
-cat << EOF > src/test/java/com/endes/biblioteca/AutorTest.java
-package com.endes.biblioteca;
+cat << EOF > src/test/java/com/endes/library/authorTest.java
+package com.endes.library;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AutorTest {
+class authorTest {
     @Test
     void testAuthorCreation() {
-        Autor autor = new Autor();
-        assertNotNull(autor);
+        author author = new author();
+        assertNotNull(author);
     }
 }
 EOF
 
-cat << EOF > src/test/java/com/endes/biblioteca/LibroTest.java
-package com.endes.biblioteca;
+cat << EOF > src/test/java/com/endes/library/BookTest.java
+package com.endes.library;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class LibroTest {
+class BookTest {
     @Test
     void testBookCreation() {
-        Libro libro = new Libro();
-        assertNotNull(libro);
+        Book book = new Book();
+        assertNotNull(book);
     }
 }
 EOF

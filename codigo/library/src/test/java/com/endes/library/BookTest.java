@@ -1,12 +1,12 @@
-package com.endes.biblioteca;
+package com.endes.library;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class LibroTest {
+class BookTest {
     @Test
     void testBookCreation() {
-        Libro libro = new Libro();
-        assertNotNull(libro);
+        Book book = new Book();
+        assertNotNull(book);
     }
 }
